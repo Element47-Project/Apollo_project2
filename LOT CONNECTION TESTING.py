@@ -1,10 +1,17 @@
 from azure.iot.device import IoTHubDeviceClient, Message
 import json
+from dotenv import load_dotenv
+import os
 from datetime import datetime
+load_dotenv()
+
 
 def send_message_to_iot_hub():
-    conn_str = ("HostName=Element47.azure-devices.net;DeviceId=Element47;"
-                "SharedAccessKey=eFaZPtSBWZFGPbyYvxW7QVTxGd6+qSlSVAIoTKxYzD8=")
+    host_name = os.environ.get('Host_Name')
+    device_id = os.environ.get('Device_ID')
+    primary_key = os.environ.get('Primary_key')
+    conn_str = (f"HostName={host_name};DeviceId={device_id};"
+                f"{primary_key}")
     client = IoTHubDeviceClient.create_from_connection_string(conn_str)
 
     try:
