@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Download Data</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>Apollo Apartment Meters Controller Board</h1>
+    <form id="show-data">
+        <label for="database-select">Select the Type:</label>
+        <select id="database-select" name="databases">
+                <option value="">--Please choose an option--</option>
+                <option value="5-Mins">5 Mins Interval</option>
+                <option value="30-Mins">30 Mins Interval</option>
+                <option value="60-Mins">60 Mins Interval</option>
+            <option value="1-Day">1 Day Interval</option>
+        </select>
+        <input type="number" id="records" min="1" value="1" placeholder="Numbers of Records">
+        <button id="show-data-button" type="submit">Show Data</button>
+    </form>
+
+    <form id="timeSelectionForm">
+        <label for="startTime">Select Start DateTime:</label>
+        <input type="datetime-local" id="startTime" name="startTime">
+
+        <label for="endTime">Select End DateTime:</label>
+        <input type="datetime-local" id="endTime" name="endTime">
+
+        <button id="download" type="submit">Download</button>
+    </form>
+
+        <div id="5-Mins">
+        <h3>5 Minutes Interval</h3>
+        <table id="5-Mins-table">
+            <!-- Data will be inserted here by JavaScript -->
+        </table>
+    </div>
+
+    <div id="30-Mins">
+        <h3>30 Minutes Interval</h3>
+        <table id="30-Mins-table">
+            <!-- Data will be inserted here by JavaScript -->
+        </table>
+    </div>
+
+    <div id="60-Mins">
+        <h3>60 Minutes Interval</h3>
+        <table id="60-Mins-table"></table>
+    </div>
+
+    <div id="1-Day">
+        <h3>1 Day Interval</h3>
+        <table id="1-Day-table"></table>
+    </div>
+
+    <div id="error-message" style="display: none; color: red;"></div>
+
+</body>
+</html>
